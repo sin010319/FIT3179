@@ -1,0 +1,110 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1200,
+    "height": 600,
+    "title": "Olivia Rodrigo Song Performance in Spotify Australia 2021",
+    "data": {
+    "url": "https://raw.githubusercontent.com/sin010319/FIT3179/main/oliviajointdata.csv"
+    },
+    "transform": [
+        {"filter": "title_selection == null || datum.title == title_selection"},
+        {"filter": "datum.rank > Rank_Above"},
+        {"filter": "datum.streams > Streams_Above"}
+    ],
+    "params": [
+        {
+            "name": "title_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "1 step forward, 3 steps back",
+                    "All I Want - From \"High School Musical: The Musical: The Series\"",
+                    "brutal",
+                    "deja vu",
+                    "drivers license",
+                    "enough for you",
+                    "favorite crime",
+                    "good 4 u",
+                    "happier",
+                    "hope ur ok",
+                    "jealousy, jealousy",
+                    "traitor"
+                ],
+                "labels": [
+                    "Show All",
+                    "1 step forward, 3 steps back",
+                    "All I Want - From \"High School Musical: The Musical: The Series\"",
+                    "brutal",
+                    "deja vu",
+                    "drivers license",
+                    "enough for you",
+                    "favorite crime",
+                    "good 4 u",
+                    "happier",
+                    "hope ur ok",
+                    "jealousy, jealousy",
+                    "traitor"
+                ],
+                "name": "Song Selection:    "
+            }
+        },
+        {
+            "name": "Rank_Above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 200,
+                "step": 1,
+                "name": "Minimum Rank:  "
+            }
+        },
+        {
+            "name": "Streams_Above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 700000,
+                "step": 10000,
+                "name": "Minimum Streams:  "
+            }
+        }
+    ],
+
+    "mark": "circle",
+    "encoding": {
+    "x": {
+    "field": "streams",
+    "type": "quantitative",
+    "title": "Streams"
+    },
+    "y": {
+    "field": "rank",
+    "type": "quantitative",
+    "title": "Rank"
+    },
+    "color": {
+    "field": "title",
+    "type": "nominal"
+    },
+    "opacity": {
+        
+        "value": 0.6
+    },
+    "size": {
+        "field": "n",
+        "type": "quantitative",
+        "title": "Total Appearance"
+    },
+    "tooltip": [
+        {"field": "title", "type": "nominal"},
+        {"field": "rank", "type": "quantitative", "format": ",", "title": "Rank"},
+        {"field": "n", "type": "quantitative", "format": ",", "title": "Total Appearance"},
+        {"field": "streams", "type": "quantitative", "format": ",", "title": "Streams"}
+     
+    ] 
+   } 
+}
+

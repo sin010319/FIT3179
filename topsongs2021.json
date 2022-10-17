@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1200,
+    "height": 600,
+    "title": { "text": "Spotify Top 10 Song in 2021" },
+    "data": {
+    "url":
+    "https://raw.githubusercontent.com/sin010319/FIT3179/main/topsongs2021.csv"
+    },
+    "mark": {"type": "bar", "tooltip": true},
+    "encoding": {
+    "x": { "field": "Total Appearance", "type": "quantitative" },
+    "y": { "field": "Song Title", "type": "nominal" }
+    }
+    }

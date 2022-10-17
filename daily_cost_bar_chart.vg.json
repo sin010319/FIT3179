@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Olivia Rodrigo Top Songs in 2021 on Spotify" },
+    "data": {
+    "url":
+    "https://raw.githubusercontent.com/sin010319/FIT3179/main/topmostpopularoliviasong.csv"
+    },
+    "mark": "arc",
+    "encoding": {
+        "theta": {"field": "Total Appearance", "type": "quantitative", "stack": "normalize"},
+        "color": {"field": "Song Title", "type": "nominal"}
+    }
+    }

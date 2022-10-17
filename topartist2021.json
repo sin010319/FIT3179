@@ -1,0 +1,16 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1200,
+    "height": 600,
+    "title": { "text": "Spotify Top 10 Artist in 2021" },
+    "data": {
+    "url":
+    "https://raw.githubusercontent.com/sin010319/FIT3179/main/top10artist2021.csv"
+    },
+    "mark": {"type": "arc", "tooltip": true, "innerRadius": 50},
+    "encoding": {
+    "theta": {"field": "Total Appearance in Top 200", "type": "quantitative", "stack": "normalize"},
+    "color": {"field": "Artist", "type": "nominal"}
+    }
+    }
+
